@@ -23,7 +23,7 @@ export function TradingViewSection() {
               href={TRADINGVIEW_AFFILIATE_URL}
               target="_blank"
               rel="noopener noreferrer sponsored"
-              className="inline-flex items-center gap-3 bg-[#1E222D] hover:bg-[#2A2E39] border border-[#2A2E39] px-3.5 py-2 rounded-xl transition-colors group"
+              className="inline-flex items-center gap-3 bg-[#1E222D] hover:bg-[#2A2E39] border border-[#2A2E39] px-4 py-2 rounded-xl transition-colors group"
             >
               {/* Official TradingView Logo Mark SVG */}
               <svg
@@ -35,21 +35,13 @@ export function TradingViewSection() {
                 className="shrink-0"
                 aria-label="TradingView Logo"
               >
-                {/* Official TradingView Monogram Logo SVG */}
                 <path
-                  d="M22.0001 2H14.0001V9.99997H6.00006V18H-0.000183105V24H6.00006V18H14.0001V9.99997H22.0001V2Z"
+                  d="M12 0H0V6H12V0ZM24 0H36V6H24V0ZM12 6H24V24H18V12H12V6Z"
                   fill="#2962FF"
                 />
-                <path
-                  d="M14 10H22V18H14V10Z"
-                  fill="white"
-                />
-                <path
-                  d="M30 10H22V18H30V24H36V18H30V10Z"
-                  fill="#2962FF"
-                />
+                <path d="M0 6H6V24H0V6Z" fill="#FFFFFF" />
               </svg>
-              <span className="font-display font-extrabold text-base tracking-tight text-white group-hover:text-blue-400 transition-colors">
+              <span className="font-display font-extrabold text-lg tracking-tight text-white group-hover:text-blue-400 transition-colors">
                 TradingView
               </span>
             </a>
@@ -60,7 +52,7 @@ export function TradingViewSection() {
           </div>
 
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight leading-tight">
-            Seamlessly overlay PropBench risk floors onto TradingView charts.
+            Overlay PropBench risk floors onto official TradingView charts.
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-body">
@@ -96,7 +88,7 @@ export function TradingViewSection() {
             <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#1E222D] border border-[#2A2E39]">
               <span className="text-[#089981] font-bold text-base mt-0.5">◆</span>
               <div>
-                <strong className="text-white block font-semibold text-sm">Multi-Asset Data</strong>
+                <strong className="text-white block font-semibold text-sm">Multi-Asset Feeds</strong>
                 <span className="text-slate-400 text-[11px]">Forex, Futures, Stock &amp; Crypto</span>
               </div>
             </div>
@@ -142,6 +134,18 @@ export function TradingViewSection() {
                   ƒ(x) Risk Overlay
                 </span>
               </div>
+            </div>
+
+            {/* TradingView Ticker Ribbon */}
+            <div className="flex items-center gap-3 bg-[#181C27] border-b border-[#2A2E39] px-4 py-2 text-[10px] text-slate-400 overflow-x-auto">
+              <span className="text-white font-bold">EURUSD</span>
+              <span className="text-emerald-400">1.08450</span>
+              <span className="text-slate-600">|</span>
+              <span className="text-slate-300">GBPUSD</span>
+              <span className="text-emerald-400">1.29820</span>
+              <span className="text-slate-600">|</span>
+              <span className="text-slate-300">US500</span>
+              <span className="text-rose-400">5420.5</span>
             </div>
 
             {/* TradingView Authentic Candlestick Chart Canvas Visual */}
