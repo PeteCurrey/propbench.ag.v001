@@ -4,6 +4,7 @@ import { the5ers } from "./the-5ers";
 import { fundingPips } from "./funding-pips";
 import { apexTraderFunding } from "./apex-trader-funding";
 import { fundedNext } from "./fundednext";
+import { eightcap } from "./eightcap";
 
 /**
  * Master list of all registered firms.
@@ -15,6 +16,7 @@ export const firms: Firm[] = [
   fundingPips,
   apexTraderFunding,
   fundedNext,
+  eightcap,
 ];
 
 /**
