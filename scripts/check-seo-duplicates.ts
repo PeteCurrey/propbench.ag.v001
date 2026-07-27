@@ -32,6 +32,11 @@ function auditSeoDuplicates() {
     description: "Browse 13 pure calculation tools for prop firm risk management, drawdown floor modeling, position sizing, and evaluation planning.",
   });
   routes.push({
+    route: "/firms",
+    title: "Verified Proprietary Trading Firms Directory | PropBench",
+    description: "Browse objective evaluation rules, drawdown parameters, daily loss limits, and verification dates for 6 registered proprietary trading firms.",
+  });
+  routes.push({
     route: "/guides",
     title: "Prop Trading Guides & Frameworks | PropBench",
     description: "Educational guides on static vs trailing drawdown, position sizing, consistency rules, daily loss limits, and prop firm risk management.",
