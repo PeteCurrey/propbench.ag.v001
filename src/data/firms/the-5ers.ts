@@ -12,8 +12,8 @@ export const the5ers: Firm = {
   slug: "the-5ers",
   name: "The 5ers",
   logoPath: null,
-  websiteUrl: "https://the-5ers.com",
-  affiliateUrl: null,
+  websiteUrl: "https://www.the5ers.com/?afmc=1dv0",
+  affiliateUrl: "https://www.the5ers.com/?afmc=1dv0",
   discountCode: null,
   programs: [
     {
