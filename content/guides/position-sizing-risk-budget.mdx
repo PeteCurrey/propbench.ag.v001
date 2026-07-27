@@ -1,0 +1,36 @@
+---
+title: "How to size positions inside a prop firm risk budget"
+description: "A mathematical framework for calculating exact position lot sizes while respecting daily and max drawdown limits."
+slug: "position-sizing-risk-budget"
+publishedDate: "2025-01-16"
+updatedDate: "2025-01-16"
+relatedTools:
+  - "position-size-calculator"
+  - "lot-size-calculator"
+  - "pip-value-calculator"
+---
+
+## Defining Your Account Risk Budget
+
+Position sizing inside a prop firm evaluation must be governed by maximum drawdown constraints rather than arbitrary fixed lot sizes.
+Establishing a strict percentage risk budget per trade ensures account longevity across unexpected losing streaks.
+
+## Calculating Lot Sizes from Stop Loss Distance
+
+Standard position sizing formulas divide your total dollar risk budget by your stop loss distance in pips multiplied by pip value per lot.
+This calculation ensures that regardless of stop distance variations, cash at risk remains identical.
+
+<Callout variant="insight" title="Risk Management Principle">
+Position volume should adjust dynamically based on stop loss distance, preserving a consistent percentage risk on every trade.
+</Callout>
+
+## Interactive Position Size Calculator
+
+Calculate your exact lot size and cash at risk using the live calculator below:
+
+<PositionSizeCalculator />
+
+## Adapting Risk to Account Growth
+
+As account equity fluctuates, position sizes should adjust to reflect current balance or remaining drawdown buffer.
+Reducing lot sizes during drawdown periods prevents compounding losses and protects the account from breach.

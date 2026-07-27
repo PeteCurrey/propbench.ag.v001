@@ -1,0 +1,35 @@
+---
+title: "Daily loss limits and the reset trap"
+description: "How server reset times and floating equity calculations affect daily drawdown compliance."
+slug: "daily-loss-limits-reset-trap"
+publishedDate: "2025-01-18"
+updatedDate: "2025-01-18"
+relatedTools:
+  - "daily-loss-limit-calculator"
+  - "reset-time-converter"
+---
+
+## Daily Loss Limit Calculation Mechanics
+
+Daily loss limits reset every 24 hours based on your equity or balance at the firm's designated daily reset time (commonly 17:00 New York / ET).
+Your breach threshold for the upcoming trading day is fixed at that exact moment.
+
+## The Reset Time Trap Explained
+
+Holding open trades through the daily reset time can cause floating losses to count against your new daily loss allowance.
+If floating drawdown carries into a new day, your effective risk buffer for that session is immediately reduced.
+
+<Callout variant="warning" title="Reset Timing Risk">
+Positions held across server reset times recalculate daily drawdown baselines, potentially shrinking your intraday room for error.
+</Callout>
+
+## Interactive Reset Time & Daily Loss Calculator
+
+Check your firm's daily reset countdown and remaining daily loss buffer below:
+
+<DailyLossLimitCalculator />
+
+## Operational Guidelines for Daily Reset Safety
+
+Close or tighten stops on open positions before the server reset time to ensure clean daily baselines.
+Use local timezone conversion to monitor exact countdowns to the daily reset event.

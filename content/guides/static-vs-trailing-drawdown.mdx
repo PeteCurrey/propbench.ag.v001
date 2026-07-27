@@ -1,0 +1,40 @@
+---
+title: "Static vs trailing drawdown: the rule that ends accounts"
+description: "An analytical breakdown of fixed versus trailing drawdown models and how peak high-water marks impact account survival."
+slug: "static-vs-trailing-drawdown"
+publishedDate: "2025-01-15"
+updatedDate: "2025-01-15"
+relatedTools:
+  - "drawdown-calculator"
+  - "position-size-calculator"
+---
+
+## Understanding Drawdown Floor Mechanics
+
+Static drawdowns lock your breach threshold relative to your starting balance, whereas trailing drawdowns ratchets the breach floor higher as your peak equity climbs.
+This structural distinction alters risk exposure significantly as account equity grows over time.
+
+## Static Drawdown: Fixed Risk Boundaries
+
+Under a static drawdown rule, earning profit increases your buffer without raising your breach floor.
+Your maximum allowable loss remains constant from the day the account is provisioned.
+
+<Callout variant="framework" title="Rule Distinction">
+Static drawdowns allow profit to cushion future losses, whereas trailing drawdowns lock in gains and narrow your remaining buffer as equity rises.
+</Callout>
+
+## Trailing Drawdown: The High Water Mark Trap
+
+Trailing drawdowns move your termination floor upwards whenever a new equity high water mark is achieved.
+If equity subsequently declines, the breach floor does not adjust downwards, creating a shrinking loss allowance.
+
+## Interactive Drawdown & Floor Calculator
+
+Use the pre-configured calculator below to test static vs trailing drawdown mechanics interactively:
+
+<DrawdownCalculator />
+
+## Key Verification Checks Before Trading
+
+Always verify whether trailing drawdowns are calculated intraday or at end-of-day (EOD) in your firm's T&Cs.
+Intraday trailing drawdowns measure floating equity peaks, while EOD models only lock in closed daily balances.
