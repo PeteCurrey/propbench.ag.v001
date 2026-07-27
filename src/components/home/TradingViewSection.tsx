@@ -4,86 +4,100 @@ import { Button } from "@/components/ui/Button";
 const TRADINGVIEW_AFFILIATE_URL = "https://www.tradingview.com/?aff_id=165855";
 
 /**
- * TradingView Section Component — Custom dark corporate card featuring TradingView's
- * iconic branding, visual styling, logo mark, and charting integration benefits.
+ * TradingView Section Component — Custom dark corporate section built using official TradingView
+ * brand identity, official TV vector logo mark, signature TradingView Blue (#2962FF), and authentic
+ * candlestick chart visual elements.
  */
 export function TradingViewSection() {
   return (
-    <section className="relative overflow-hidden rounded-2xl bg-[#131722] border border-slate-800 p-8 sm:p-12 text-white shadow-2xl text-left">
-      {/* Background Subtle Grid Effect */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1f2434_1px,transparent_1px),linear-gradient(to_bottom,#1f2434_1px,transparent_1px)] bg-[size:2rem_2rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40 pointer-events-none" />
+    <section className="relative overflow-hidden rounded-2xl bg-[#131722] border border-[#2A2E39] p-8 sm:p-12 text-white shadow-2xl text-left">
+      {/* TradingView Dark Grid Background */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1E222D_1px,transparent_1px),linear-gradient(to_bottom,#1E222D_1px,transparent_1px)] bg-[size:1.75rem_1.75rem] opacity-50 pointer-events-none" />
 
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        {/* Left Column — Text & Copy */}
+        {/* Left Column — Brand Header, Copy, Features & CTA */}
         <div className="lg:col-span-7 space-y-6">
+          {/* Official TradingView Logo Badge */}
           <div className="flex items-center gap-3">
-            {/* TradingView Iconic Logo Mark SVG */}
-            <div className="flex items-center gap-2 bg-[#1E222D] border border-slate-700/60 px-3 py-1.5 rounded-lg">
+            <a
+              href={TRADINGVIEW_AFFILIATE_URL}
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+              className="inline-flex items-center gap-3 bg-[#1E222D] hover:bg-[#2A2E39] border border-[#2A2E39] px-3.5 py-2 rounded-xl transition-colors group"
+            >
+              {/* Official TradingView Logo Mark SVG */}
               <svg
-                width="24"
-                height="16"
+                width="36"
+                height="24"
                 viewBox="0 0 36 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+                className="shrink-0"
+                aria-label="TradingView Logo"
               >
+                {/* Official TradingView Monogram Logo SVG */}
                 <path
-                  d="M12 4L4 12H10V20L18 12H12V4Z"
+                  d="M22.0001 2H14.0001V9.99997H6.00006V18H-0.000183105V24H6.00006V18H14.0001V9.99997H22.0001V2Z"
                   fill="#2962FF"
                 />
                 <path
-                  d="M24 4L16 12H22V20L30 12H24V4Z"
-                  fill="#00E676"
+                  d="M14 10H22V18H14V10Z"
+                  fill="white"
+                />
+                <path
+                  d="M30 10H22V18H30V24H36V18H30V10Z"
+                  fill="#2962FF"
                 />
               </svg>
-              <span className="font-display font-extrabold text-sm tracking-wider text-white uppercase">
+              <span className="font-display font-extrabold text-base tracking-tight text-white group-hover:text-blue-400 transition-colors">
                 TradingView
               </span>
-            </div>
-            <span className="font-mono text-[10px] uppercase tracking-widest text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded border border-slate-700">
-              Technical Charting Partner
+            </a>
+
+            <span className="font-mono text-[10px] uppercase tracking-widest text-slate-400 bg-[#1E222D] px-3 py-1.5 rounded-lg border border-[#2A2E39]">
+              Technical Charting Engine
             </span>
           </div>
 
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-white tracking-tight leading-tight">
-            Visualize PropBench risk floors directly on TradingView charts.
+            Seamlessly overlay PropBench risk floors onto TradingView charts.
           </h2>
 
           <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-body">
-            Pair PropBench calculation models with TradingView&apos;s world-class charting engine. Map maximum daily loss limits, drawdown breach thresholds, and exact position size stop levels directly onto live market price action.
+            Connect PropBench&apos;s pure calculation models with TradingView&apos;s world-leading financial charting platform. Plot static and trailing drawdown breach levels, daily loss boundaries, and exact position stop distances directly on live market candles.
           </p>
 
-          {/* Feature Bullets */}
+          {/* Feature Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs pt-2">
-            <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#1E222D] border border-slate-800">
-              <span className="text-[#2962FF] font-bold text-sm">✓</span>
+            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#1E222D] border border-[#2A2E39]">
+              <span className="text-[#2962FF] font-bold text-base mt-0.5">◆</span>
               <div>
-                <strong className="text-white block font-semibold">Drawdown Overlay</strong>
-                <span className="text-slate-400 text-[11px]">Plot static &amp; trailing floors</span>
+                <strong className="text-white block font-semibold text-sm">Drawdown Levels</strong>
+                <span className="text-slate-400 text-[11px]">Static &amp; trailing floor overlays</span>
               </div>
             </div>
 
-            <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#1E222D] border border-slate-800">
-              <span className="text-[#00E676] font-bold text-sm">✓</span>
+            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#1E222D] border border-[#2A2E39]">
+              <span className="text-[#089981] font-bold text-base mt-0.5">◆</span>
               <div>
-                <strong className="text-white block font-semibold">Position Sizing</strong>
+                <strong className="text-white block font-semibold text-sm">Position Sizing</strong>
                 <span className="text-slate-400 text-[11px]">Exact pip &amp; lot size calculation</span>
               </div>
             </div>
 
-            <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#1E222D] border border-slate-800">
-              <span className="text-[#2962FF] font-bold text-sm">✓</span>
+            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#1E222D] border border-[#2A2E39]">
+              <span className="text-[#2962FF] font-bold text-base mt-0.5">◆</span>
               <div>
-                <strong className="text-white block font-semibold">Pine Script Ready</strong>
-                <span className="text-slate-400 text-[11px]">Export level coordinates</span>
+                <strong className="text-white block font-semibold text-sm">Pine Script™ Export</strong>
+                <span className="text-slate-400 text-[11px]">Custom indicator level scripts</span>
               </div>
             </div>
 
-            <div className="flex items-start gap-2.5 p-3 rounded-lg bg-[#1E222D] border border-slate-800">
-              <span className="text-[#00E676] font-bold text-sm">✓</span>
+            <div className="flex items-start gap-3 p-3.5 rounded-xl bg-[#1E222D] border border-[#2A2E39]">
+              <span className="text-[#089981] font-bold text-base mt-0.5">◆</span>
               <div>
-                <strong className="text-white block font-semibold">Global Markets</strong>
-                <span className="text-slate-400 text-[11px]">Forex, Futures, Indices &amp; Commodities</span>
+                <strong className="text-white block font-semibold text-sm">Multi-Asset Data</strong>
+                <span className="text-slate-400 text-[11px]">Forex, Futures, Stock &amp; Crypto</span>
               </div>
             </div>
           </div>
@@ -98,62 +112,132 @@ export function TradingViewSection() {
               <Button
                 variant="primary"
                 size="lg"
-                className="bg-[#2962FF] hover:bg-[#1E52D8] text-white border-0 shadow-lg font-semibold"
+                className="bg-[#2962FF] hover:bg-[#1E52D8] text-white border-0 shadow-lg font-semibold px-6 py-3"
               >
-                Open Charts on TradingView &rarr;
+                Open TradingView Platform &rarr;
               </Button>
             </a>
             <span className="text-[11px] font-mono text-slate-400">
-              Free &amp; Pro chart accounts supported
+              Free &amp; Premium accounts supported
             </span>
           </div>
         </div>
 
-        {/* Right Column — Simulated TradingView Chart Widget Card */}
+        {/* Right Column — Authentic TradingView Chart Window Graphic */}
         <div className="lg:col-span-5 flex justify-center">
-          <div className="w-full max-w-md bg-[#1E222D] border border-slate-800 rounded-xl p-5 shadow-2xl space-y-4 text-left font-mono text-xs">
-            {/* Widget Bar Header */}
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3">
-              <div className="flex items-center gap-2">
+          <div className="w-full max-w-md bg-[#1E222D] border border-[#2A2E39] rounded-2xl shadow-2xl overflow-hidden text-left font-mono text-xs">
+            {/* TradingView Top Chart Bar Header */}
+            <div className="flex items-center justify-between bg-[#131722] border-b border-[#2A2E39] px-4 py-3">
+              <div className="flex items-center gap-3">
                 <span className="font-bold text-white text-sm">EURUSD</span>
-                <span className="text-[10px] text-slate-400 px-1.5 py-0.5 rounded bg-slate-800">1D</span>
-                <span className="text-[10px] text-emerald-400 font-bold">1.08450</span>
+                <span className="text-[10px] text-slate-300 px-2 py-0.5 rounded bg-[#1E222D] border border-[#2A2E39]">
+                  1D
+                </span>
+                <span className="text-[11px] text-[#089981] font-bold">
+                  1.08450 <span className="text-[9px] text-[#089981] font-normal">+0.31%</span>
+                </span>
               </div>
-              <span className="text-[10px] text-slate-400 uppercase">TradingView Engine</span>
-            </div>
-
-            {/* Simulated Chart Candlestick Visual Graphic */}
-            <div className="h-40 bg-[#131722] rounded-lg p-3 relative overflow-hidden flex flex-col justify-between border border-slate-800">
-              <div className="flex justify-between text-[10px] text-slate-500">
-                <span>R:R 1:2.5</span>
-                <span>PropBench Overlay</span>
-              </div>
-
-              {/* Simulated Level Lines */}
-              <div className="space-y-3 relative z-10">
-                <div className="flex items-center justify-between text-[10px] border-b border-dashed border-emerald-500/60 pb-1 text-emerald-400">
-                  <span>Target Floor (+8%)</span>
-                  <span>1.09250</span>
-                </div>
-                <div className="flex items-center justify-between text-[10px] border-b border-solid border-[#2962FF]/80 pb-1 text-blue-400">
-                  <span>Current Entry Position</span>
-                  <span>1.08450</span>
-                </div>
-                <div className="flex items-center justify-between text-[10px] border-b border-dashed border-rose-500/80 pb-1 text-rose-400">
-                  <span>Max Drawdown Breach Level (-10%)</span>
-                  <span>1.07450</span>
-                </div>
-              </div>
-
-              <div className="text-[9px] text-slate-500 text-right">
-                Live Data Feed • TradingView
+              <div className="flex items-center gap-1.5 text-[10px] text-slate-400">
+                <span className="px-2 py-0.5 rounded bg-[#1E222D] border border-[#2A2E39] text-[#2962FF] font-bold">
+                  ƒ(x) Risk Overlay
+                </span>
               </div>
             </div>
 
-            {/* Bottom Callout in Card */}
-            <div className="p-3 rounded bg-[#131722] border border-slate-800 text-[11px] text-slate-300 flex items-center justify-between">
-              <span>Risk Per Trade: 1.0%</span>
-              <span className="text-[#00E676] font-bold">Passed Verification</span>
+            {/* TradingView Authentic Candlestick Chart Canvas Visual */}
+            <div className="h-56 bg-[#131722] p-4 relative flex flex-col justify-between overflow-hidden">
+              {/* Background Grid Lines */}
+              <div className="absolute inset-0 bg-[linear-gradient(to_right,#1E222D_1px,transparent_1px),linear-gradient(to_bottom,#1E222D_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-60" />
+
+              {/* Candlestick SVG Graphic */}
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none opacity-90"
+                preserveAspectRatio="none"
+                viewBox="0 0 400 160"
+              >
+                {/* Candle 1 (Green) */}
+                <line x1="40" y1="90" x2="40" y2="130" stroke="#089981" strokeWidth="1.5" />
+                <rect x="35" y="100" width="10" height="20" fill="#089981" />
+
+                {/* Candle 2 (Red) */}
+                <line x1="80" y1="80" x2="80" y2="120" stroke="#F23645" strokeWidth="1.5" />
+                <rect x="75" y="90" width="10" height="25" fill="#F23645" />
+
+                {/* Candle 3 (Green) */}
+                <line x1="120" y1="60" x2="120" y2="110" stroke="#089981" strokeWidth="1.5" />
+                <rect x="115" y="70" width="10" height="30" fill="#089981" />
+
+                {/* Candle 4 (Green) */}
+                <line x1="160" y1="40" x2="160" y2="90" stroke="#089981" strokeWidth="1.5" />
+                <rect x="155" y="50" width="10" height="30" fill="#089981" />
+
+                {/* Candle 5 (Red) */}
+                <line x1="200" y1="45" x2="200" y2="85" stroke="#F23645" strokeWidth="1.5" />
+                <rect x="195" y="55" width="10" height="20" fill="#F23645" />
+
+                {/* Candle 6 (Green) */}
+                <line x1="240" y1="30" x2="240" y2="75" stroke="#089981" strokeWidth="1.5" />
+                <rect x="235" y="40" width="10" height="25" fill="#089981" />
+
+                {/* Candle 7 (Green - Current) */}
+                <line x1="280" y1="20" x2="280" y2="65" stroke="#089981" strokeWidth="1.5" />
+                <rect x="275" y="30" width="10" height="25" fill="#089981" />
+
+                {/* PropBench Overlay Horizontal Price Lines */}
+                {/* Profit Target Line */}
+                <line x1="0" y1="25" x2="400" y2="25" stroke="#089981" strokeWidth="1.5" strokeDasharray="4 4" />
+                
+                {/* Entry Level Line */}
+                <line x1="0" y1="65" x2="400" y2="65" stroke="#2962FF" strokeWidth="2" />
+                
+                {/* Max Loss Breach Line */}
+                <line x1="0" y1="135" x2="400" y2="135" stroke="#F23645" strokeWidth="1.5" strokeDasharray="4 4" />
+              </svg>
+
+              {/* Price Tag Labels Overlay */}
+              <div className="relative z-10 space-y-7">
+                <div className="flex items-center justify-between text-[10px]">
+                  <span className="bg-[#089981]/20 text-[#089981] border border-[#089981]/50 px-2 py-0.5 rounded font-semibold">
+                    Target Profit (+8.0%)
+                  </span>
+                  <span className="font-bold text-[#089981] bg-[#131722]/90 px-1.5 py-0.5 rounded">1.09250</span>
+                </div>
+
+                <div className="flex items-center justify-between text-[10px]">
+                  <span className="bg-[#2962FF]/20 text-[#2962FF] border border-[#2962FF]/50 px-2 py-0.5 rounded font-semibold">
+                    Entry Position (1.0 Lot)
+                  </span>
+                  <span className="font-bold text-[#2962FF] bg-[#131722]/90 px-1.5 py-0.5 rounded">1.08450</span>
+                </div>
+
+                <div className="flex items-center justify-between text-[10px]">
+                  <span className="bg-[#F23645]/20 text-[#F23645] border border-[#F23645]/50 px-2 py-0.5 rounded font-semibold">
+                    Max Drawdown Floor (-10.0%)
+                  </span>
+                  <span className="font-bold text-[#F23645] bg-[#131722]/90 px-1.5 py-0.5 rounded">1.07450</span>
+                </div>
+              </div>
+
+              <div className="relative z-10 flex items-center justify-between text-[9px] text-slate-400 pt-2 border-t border-[#2A2E39]">
+                <span>Data Feed: TradingView Realtime</span>
+                <span className="text-[#089981] font-bold">● Active Engine</span>
+              </div>
+            </div>
+
+            {/* TradingView Bottom Status Strip */}
+            <div className="bg-[#1E222D] p-3.5 border-t border-[#2A2E39] text-[11px] text-slate-300 flex items-center justify-between">
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-[#2962FF]" />
+                <span>Risk/Reward Ratio: <strong className="text-white">1:2.5</strong></span>
+              </span>
+              <a
+                href={TRADINGVIEW_AFFILIATE_URL}
+                target="_blank"
+                rel="noopener noreferrer sponsored"
+                className="text-[#2962FF] hover:underline font-bold"
+              >
+                Chart on TradingView &rarr;
+              </a>
             </div>
           </div>
         </div>
