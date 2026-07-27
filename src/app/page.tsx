@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Stat } from "@/components/ui/Stat";
 import { HeroMiniDrawdownCalc } from "@/components/home/HeroMiniDrawdownCalc";
+import { TradingViewSection } from "@/components/home/TradingViewSection";
 import { getAllGuides } from "@/lib/guides";
 import { firms } from "@/data/firms/index";
 import { TOOLS_DIRECTORY } from "@/data/tools";
@@ -231,7 +232,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 5. The PDF Survival Kit Highlight Section ────────────────────── */}
+      {/* ── 5. TradingView Technical Charting Integration ───────────────────── */}
+      <TradingViewSection />
+
+      {/* ── 6. The PDF Survival Kit Highlight Section ────────────────────── */}
       <section className="p-8 sm:p-10 rounded-xl bg-white border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-4 flex justify-center">
           {/* PDF Cover Mock */}
@@ -273,7 +277,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 6. Recent Educational Guides ─────────────────────────────────── */}
+      {/* ── 7. Recent Educational Guides ─────────────────────────────────── */}
       <section className="space-y-6">
         <div className="flex items-center justify-between text-left">
           <div>
@@ -311,7 +315,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 7. Footer with Risk Warning & Affiliate Disclosure ───────────── */}
+      {/* ── 8. Footer with Risk Warning & Affiliate Disclosure ───────────── */}
       <footer className="pt-10 border-t border-slate-200 space-y-6 text-left">
         <AffiliateDisclosure />
 
