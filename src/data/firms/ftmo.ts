@@ -16,8 +16,8 @@ export const ftmo: Firm = {
   slug: "ftmo",
   name: "FTMO",
   logoPath: null,
-  websiteUrl: "https://ftmo.com",
-  affiliateUrl: null,
+  websiteUrl: "https://trader.ftmo.com/?affiliates=IuDKuiDWoYwPvOzBWcSy",
+  affiliateUrl: "https://trader.ftmo.com/?affiliates=IuDKuiDWoYwPvOzBWcSy",
   discountCode: null,
   programs: [
     {

@@ -42,6 +42,7 @@ export default function FirmsDirectoryPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {firms.map((firm) => {
           const mainProgram = firm.programs[0];
+          const targetUrl = firm.affiliateUrl ?? firm.websiteUrl;
           return (
             <Card
               key={firm.slug}
@@ -54,9 +55,9 @@ export default function FirmsDirectoryPage() {
                       {firm.name}
                     </h2>
                     <a
-                      href={firm.websiteUrl}
+                      href={targetUrl}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer sponsored"
                       className="text-xs font-mono text-slate-500 hover:text-slate-900 underline"
                     >
                       {new URL(firm.websiteUrl).hostname}

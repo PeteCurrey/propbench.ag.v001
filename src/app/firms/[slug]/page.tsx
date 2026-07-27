@@ -249,6 +249,8 @@ export default async function FirmPage({
     notFound();
   }
 
+  const linkUrl = firm.affiliateUrl ?? firm.websiteUrl;
+
   return (
     <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8 py-16">
       {/* Page header */}
@@ -261,12 +263,12 @@ export default async function FirmPage({
         </h1>
         <p className="text-sm text-text-muted">
           <a
-            href={firm.websiteUrl}
+            href={linkUrl}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer sponsored"
             className="underline underline-offset-2 hover:text-text-primary transition-colors"
           >
-            {firm.websiteUrl}
+            {linkUrl}
           </a>
         </p>
       </div>
