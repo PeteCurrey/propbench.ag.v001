@@ -24,7 +24,7 @@ function auditSeoDuplicates() {
   routes.push({
     route: "/",
     title: "PropBench — Prop Trading Calculators & Risk Analytics",
-    description: "[PLACEHOLDER: Benchmark proprietary trading firm rules, calculate drawdown floors, size positions, and model risk probability.]",
+    description: "Benchmark proprietary trading firm rules, calculate drawdown floors, size positions, and model risk probability.",
   });
   routes.push({
     route: "/tools",
@@ -39,27 +39,27 @@ function auditSeoDuplicates() {
   routes.push({
     route: "/survival-kit",
     title: "Prop Trading Survival Kit PDF Manual | PropBench",
-    description: "[PLACEHOLDER: The definitive reference manual on drawdown mathematics, risk budget sizing, and evaluation planning for prop traders.]",
+    description: "The definitive mathematical reference manual on drawdown mechanics, risk budget sizing, and evaluation planning for prop traders.",
   });
   routes.push({
     route: "/disclaimer",
     title: "Disclaimer & Legal Notices | PropBench",
-    description: "[PLACEHOLDER: Legal disclaimer and risk notices regarding financial calculation tools.]",
+    description: "Legal disclaimer and risk notices regarding PropBench calculation tools and educational reference materials.",
   });
   routes.push({
     route: "/privacy",
     title: "Privacy Policy | PropBench",
-    description: "[PLACEHOLDER: Privacy policy outlining data protection and processing compliance under UK GDPR.]",
+    description: "Privacy policy outlining data protection and privacy compliance under UK GDPR and Data Protection Act 2018.",
   });
   routes.push({
     route: "/terms",
     title: "Terms of Service | PropBench",
-    description: "[PLACEHOLDER: Terms of service governing the use of PropBench calculation tools and subscription services.]",
+    description: "Terms of service governing the use of PropBench calculation tools, digital products, and subscription services.",
   });
   routes.push({
     route: "/affiliate-disclosure",
     title: "Affiliate & Commercial Disclosure | PropBench",
-    description: "[PLACEHOLDER: Plain English affiliate disclosure outlining referral commission relationships.]",
+    description: "Plain English affiliate disclosure outlining referral commission relationships and independent calculation integrity.",
   });
 
   // 2. Individual Tool Routes
