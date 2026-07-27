@@ -16,8 +16,7 @@ interface TableProps<T extends Record<string, unknown>> {
 }
 
 /**
- * Table — dense, horizontally scrollable on mobile, DM Mono for numeric cells.
- * Scrollable wrapper prevents layout breakage at 375px per mobile-first rule.
+ * Table — Signal Centre style clean white tabular data component with light slate borders.
  */
 export function Table<T extends Record<string, any>>({
   columns,
@@ -26,19 +25,19 @@ export function Table<T extends Record<string, any>>({
   className = "",
 }: TableProps<T>) {
   return (
-    <div className={`w-full overflow-x-auto rounded-lg border border-border ${className}`}>
+    <div className={`w-full overflow-x-auto rounded-lg border border-slate-200 bg-white shadow-sm ${className}`}>
       <table className="w-full min-w-max border-collapse text-sm">
         {caption && (
           <caption className="sr-only">{caption}</caption>
         )}
         <thead>
-          <tr className="border-b border-border bg-bg-inset">
+          <tr className="border-b border-slate-200 bg-slate-50">
             {columns.map((col) => (
               <th
                 key={String(col.key)}
                 scope="col"
                 className={[
-                  "px-4 py-2.5 text-[10px] font-mono uppercase tracking-widest text-text-muted font-normal",
+                  "px-4 py-3 text-[10px] font-mono uppercase tracking-widest text-slate-500 font-semibold",
                   col.align === "right"
                     ? "text-right"
                     : col.align === "center"
@@ -56,7 +55,7 @@ export function Table<T extends Record<string, any>>({
             <tr>
               <td
                 colSpan={columns.length}
-                className="px-4 py-6 text-center text-text-muted text-sm"
+                className="px-4 py-6 text-center text-slate-400 text-sm"
               >
                 No data available
               </td>
@@ -65,25 +64,24 @@ export function Table<T extends Record<string, any>>({
             rows.map((row, i) => (
               <tr
                 key={i}
-                className="border-b border-border last:border-0 hover:bg-bg-raised/60 transition-colors"
+                className="border-b border-slate-100 last:border-0 hover:bg-slate-50/70 transition-colors"
               >
                 {columns.map((col) => {
                   const value = row[col.key];
                   const displayValue = col.render
                     ? col.render(value, row)
                     : value === null || value === undefined
-                    ? <span className="text-text-muted/50">—</span>
+                    ? <span className="text-slate-400">—</span>
                     : String(value);
 
                   return (
                     <td
                       key={String(col.key)}
                       className={[
-                        "px-4 py-2.5",
+                        "px-4 py-3 text-xs sm:text-sm",
                         col.numeric
-                          ? "font-mono tabular-nums text-right"
-                          : "font-body",
-                        "text-text-primary",
+                          ? "font-mono tabular-nums text-right text-slate-900 font-medium"
+                          : "font-body text-slate-800",
                         col.align === "right"
                           ? "text-right"
                           : col.align === "center"

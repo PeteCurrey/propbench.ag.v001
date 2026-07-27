@@ -2,19 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Design token CSS variables ─────────────────────────────────────────── */
+/* ─── Signal Centre Light Corporate Design Token CSS variables ────────────── */
 :root {
-  --color-bg-base: #0a0a0b;
-  --color-bg-raised: #131315;
-  --color-bg-inset: #0e0e10;
-  --color-border: #232326;
-  --color-text-primary: #f4f4f5;
-  --color-text-muted: #8a8a93;
-  --color-accent: #d9a441;
-  --color-accent-dim: #8a6a2b;
-  --color-positive: #4ade80;
-  --color-warning: #fbbf24;
-  --color-danger: #f87171;
+  --color-bg-base: #ffffff;
+  --color-bg-raised: #f8fafc;
+  --color-bg-inset: #f1f5f9;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-accent: #1b2a4a;
+  --color-accent-hover: #0f172a;
+  --color-accent-blue: #2563eb;
+  --color-accent-dim: #94a3b8;
+  --color-positive: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
 }
 
 /* ─── Base layer ──────────────────────────────────────────────────────────── */
@@ -23,11 +27,12 @@
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: #ffffff;
+    color: #0f172a;
   }
 
   body {
     @apply bg-bg-base text-text-primary font-body;
-    /* Prevent horizontal scroll at any viewport width */
     overflow-x: hidden;
   }
 
@@ -38,14 +43,13 @@
     font-feature-settings: "tnum";
   }
 
-  /* Remove default focus ring and replace with accessible custom ring */
+  /* Focus ring for accessible corporate look */
   *:focus-visible {
     outline: 2px solid var(--color-accent);
     outline-offset: 2px;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
-  /* Hairlines use the border token */
   hr {
     border-color: var(--color-border);
   }
@@ -53,10 +57,15 @@
 
 /* ─── Component utilities ─────────────────────────────────────────────────── */
 @layer components {
-  /* Header backdrop */
+  /* Clean glassmorphism header backdrop */
   .header-backdrop {
-    background-color: color-mix(in srgb, var(--color-bg-base) 80%, transparent);
+    background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Signal Centre Pill Badge */
+  .badge-pill {
+    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-mono font-medium tracking-wider uppercase text-slate-700;
   }
 }

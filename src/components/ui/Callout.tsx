@@ -14,28 +14,27 @@ const variantConfig: Record<
   { border: string; bg: string; label: string; labelColour: string }
 > = {
   insight: {
-    border: "border-l-accent",
-    bg: "bg-accent/5",
+    border: "border-l-blue-600",
+    bg: "bg-blue-50/60 border-blue-200",
     label: "insight",
-    labelColour: "text-accent",
+    labelColour: "text-blue-700",
   },
   warning: {
-    border: "border-l-warning",
-    bg: "bg-warning/5",
+    border: "border-l-amber-500",
+    bg: "bg-amber-50/60 border-amber-200",
     label: "warning",
-    labelColour: "text-warning",
+    labelColour: "text-amber-700",
   },
   framework: {
-    border: "border-l-text-muted",
-    bg: "bg-bg-raised",
+    border: "border-l-slate-600",
+    bg: "bg-slate-50 border-slate-200",
     label: "framework",
-    labelColour: "text-text-muted",
+    labelColour: "text-slate-600",
   },
 };
 
 /**
- * Callout — left-bordered panel for insight / warning / framework notes.
- * Educational framing only — no performance claims (FCA Rule 4).
+ * Callout — Signal Centre style left-bordered panel for educational insight / warning notes.
  */
 export function Callout({
   variant = "insight",
@@ -49,19 +48,19 @@ export function Callout({
     <div
       role="note"
       className={[
-        "border-l-2 pl-4 py-3 pr-4 rounded-r-lg",
+        "border-l-4 border border-y border-r pl-4 py-3.5 pr-4 rounded-r-lg shadow-sm",
         border,
         bg,
         className,
       ].join(" ")}
     >
-      <p className={`text-[10px] font-mono uppercase tracking-widest mb-1 ${labelColour}`}>
+      <p className={`text-[10px] font-mono uppercase tracking-widest font-bold mb-1 ${labelColour}`}>
         {label}
       </p>
       {title && (
-        <p className="text-sm font-semibold text-text-primary mb-1">{title}</p>
+        <p className="text-sm font-semibold text-slate-900 mb-1">{title}</p>
       )}
-      <div className="text-sm text-text-muted leading-relaxed">{children}</div>
+      <div className="text-xs sm:text-sm text-slate-600 leading-relaxed">{children}</div>
     </div>
   );
 }

@@ -103,16 +103,16 @@ export function CalculatorShell<TInputs extends Record<string, any>>({
   const assumptions = getAssumptions(debouncedInputs);
 
   return (
-    <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+    <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8 py-10 sm:py-16 text-left">
       {/* Header section */}
       <div className="mb-10 text-left">
-        <p className="font-mono text-[10px] uppercase tracking-widest text-text-muted mb-2">
-          Tools / Interactive Calculators
+        <p className="font-mono text-[11px] uppercase tracking-widest font-semibold text-slate-500 mb-2">
+          Interactive Calculators &bull; Rule Engines
         </p>
-        <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-text-primary tracking-tight mb-3">
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 tracking-tight mb-3">
           {title}
         </h1>
-        <p className="text-sm sm:text-base text-text-muted max-w-2xl">{subtitle}</p>
+        <p className="text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed">{subtitle}</p>
       </div>
 
       {/* Main 2-column layout (Left input / Right results & visual) */}
@@ -120,8 +120,8 @@ export function CalculatorShell<TInputs extends Record<string, any>>({
         {/* Left Column: Input Panel */}
         <div className="lg:col-span-5 flex flex-col gap-6">
           <Card className="flex flex-col gap-6">
-            <div className="flex items-center justify-between border-b border-border pb-3">
-              <h2 className="font-display font-semibold text-lg text-text-primary">Parameters</h2>
+            <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+              <h2 className="font-display font-semibold text-base text-slate-900">Input Parameters</h2>
               <Button variant="ghost" size="sm" onClick={handleReset}>
                 Reset
               </Button>
@@ -141,7 +141,7 @@ export function CalculatorShell<TInputs extends Record<string, any>>({
             <>
               {/* Stat Results Card */}
               <Card variant="default" className="flex flex-col gap-6">
-                <h2 className="font-display font-semibold text-lg text-text-primary border-b border-border pb-3">
+                <h2 className="font-display font-semibold text-base text-slate-900 border-b border-slate-200 pb-3">
                   Calculation Results
                 </h2>
                 {renderResultsPanel(debouncedInputs)}
@@ -150,7 +150,7 @@ export function CalculatorShell<TInputs extends Record<string, any>>({
               {/* Per-Calculator Visual Element Slot */}
               {renderVisual && (
                 <Card className="flex flex-col gap-4">
-                  <h3 className="text-xs font-mono uppercase tracking-widest text-text-muted">
+                  <h3 className="text-[11px] font-mono uppercase tracking-widest text-slate-500 font-semibold">
                     Visual Analysis
                   </h3>
                   {renderVisual(debouncedInputs)}
@@ -162,15 +162,15 @@ export function CalculatorShell<TInputs extends Record<string, any>>({
           {/* Assumptions Disclosure */}
           <Disclosure title="Calculation Assumptions & Model Details">
             <div className="space-y-3 pt-2 text-xs">
-              <p className="text-text-muted mb-2">
+              <p className="text-slate-600 mb-2">
                 This calculation relies strictly on the parameters provided below:
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-mono">
                 {assumptions.map((item, idx) => (
-                  <div key={idx} className="p-2.5 rounded border border-border bg-surface-base">
-                    <span className="text-text-muted block text-[10px] uppercase">{item.label}</span>
-                    <span className="text-text-primary font-bold text-sm">{item.value}</span>
-                    <span className="text-text-muted/80 block text-[11px] mt-1 italic font-sans">
+                  <div key={idx} className="p-3 rounded-lg border border-slate-200 bg-slate-50">
+                    <span className="text-slate-500 block text-[10px] uppercase font-medium">{item.label}</span>
+                    <span className="text-slate-900 font-bold text-sm">{item.value}</span>
+                    <span className="text-slate-500 block text-[11px] mt-1 italic font-sans">
                       {item.explanation}
                     </span>
                   </div>
@@ -181,10 +181,10 @@ export function CalculatorShell<TInputs extends Record<string, any>>({
         </div>
       </div>
 
-      {/* Below the Fold: Educational & Interpretive Copy (200-400 words) */}
-      <section className="mt-16 pt-10 border-t border-border max-w-3xl">
-        <h2 className="font-display font-bold text-xl text-text-primary mb-4">{explanationTitle}</h2>
-        <div className="prose prose-invert text-sm text-text-muted space-y-4 leading-relaxed">
+      {/* Below the Fold: Educational & Interpretive Copy */}
+      <section className="mt-16 pt-10 border-t border-slate-200 max-w-3xl">
+        <h2 className="font-display font-bold text-xl text-slate-900 mb-4">{explanationTitle}</h2>
+        <div className="prose text-sm text-slate-600 space-y-4 leading-relaxed">
           {explanationText}
         </div>
       </section>

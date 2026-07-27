@@ -14,8 +14,7 @@ export interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectE
 }
 
 /**
- * Select — native <select> styled to design tokens.
- * Native select is preferred for mobile usability (one-handed, mid-session).
+ * Select — Signal Centre style light background dropdown with crisp slate borders.
  */
 export function Select({
   label,
@@ -41,7 +40,7 @@ export function Select({
       {label && (
         <label
           htmlFor={id}
-          className="text-xs font-medium text-text-muted uppercase tracking-wide"
+          className="text-[11px] font-mono font-medium text-slate-500 uppercase tracking-wider"
         >
           {label}
         </label>
@@ -52,13 +51,13 @@ export function Select({
           value={value ?? ""}
           onChange={handleChange}
           className={[
-            "w-full appearance-none bg-bg-inset text-text-primary font-body text-sm",
-            "border rounded-md px-3 py-2 pr-8",
+            "w-full appearance-none bg-white text-slate-900 font-body text-sm shadow-sm",
+            "border rounded-md px-3.5 py-2 pr-8",
             "transition-colors duration-150 cursor-pointer",
-            "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1 focus:ring-offset-bg-base focus:border-accent",
+            "focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900",
             error
-              ? "border-danger focus:ring-danger"
-              : "border-border hover:border-accent-dim",
+              ? "border-rose-500 focus:ring-rose-500"
+              : "border-slate-300 hover:border-slate-400",
             className,
           ].join(" ")}
           aria-invalid={error ? "true" : undefined}
@@ -73,7 +72,7 @@ export function Select({
         </select>
         {/* Chevron icon */}
         <span
-          className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-text-muted"
+          className="pointer-events-none absolute inset-y-0 right-3.5 flex items-center text-slate-500"
           aria-hidden="true"
         >
           <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
@@ -82,7 +81,7 @@ export function Select({
         </span>
       </div>
       {error && (
-        <p id={`${id}-error`} className="text-xs text-danger" role="alert">
+        <p id={`${id}-error`} className="text-xs text-rose-600 font-medium" role="alert">
           {error}
         </p>
       )}

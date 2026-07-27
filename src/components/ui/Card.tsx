@@ -7,21 +7,20 @@ interface CardProps {
 }
 
 /**
- * Card — base panel using bg-raised, with an optional inset variant using bg-inset.
- * Border is a hairline at the design-token border colour.
+ * Card — Signal Centre style clean white panel with crisp light slate border.
  */
 export function Card({
   variant = "default",
   className = "",
   children,
 }: CardProps) {
-  const bg = variant === "inset" ? "bg-bg-inset" : "bg-bg-raised";
+  const bg = variant === "inset" ? "bg-slate-50/80" : "bg-white";
 
   return (
     <div
       className={[
         bg,
-        "border border-border rounded-lg p-4",
+        "border border-slate-200 shadow-sm rounded-lg p-5 transition-colors",
         className,
       ].join(" ")}
     >

@@ -7,9 +7,7 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
 }
 
 /**
- * Input — text input styled to design tokens.
- * Renders an accessible label when provided.
- * Error state replaces border with danger colour and shows message below.
+ * Input — Signal Centre style light background text input with crisp slate borders.
  */
 export function Input({
   label,
@@ -26,7 +24,7 @@ export function Input({
       {label && (
         <label
           htmlFor={id}
-          className="text-xs font-medium text-text-muted uppercase tracking-wide"
+          className="text-[11px] font-mono font-medium text-slate-500 uppercase tracking-wider"
         >
           {label}
         </label>
@@ -34,14 +32,14 @@ export function Input({
       <input
         id={id}
         className={[
-          "w-full bg-bg-inset text-text-primary font-body text-sm",
-          "border rounded-md px-3 py-2",
-          "placeholder:text-text-muted/50",
+          "w-full bg-white text-slate-900 font-body text-sm",
+          "border rounded-md px-3.5 py-2 shadow-sm",
+          "placeholder:text-slate-400",
           "transition-colors duration-150",
-          "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1 focus:ring-offset-bg-base focus:border-accent",
+          "focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900",
           error
-            ? "border-danger focus:ring-danger"
-            : "border-border hover:border-accent-dim",
+            ? "border-rose-500 focus:ring-rose-500"
+            : "border-slate-300 hover:border-slate-400",
           className,
         ].join(" ")}
         aria-invalid={error ? "true" : undefined}
@@ -49,7 +47,7 @@ export function Input({
         {...props}
       />
       {error && (
-        <p id={`${id}-error`} className="text-xs text-danger" role="alert">
+        <p id={`${id}-error`} className="text-xs text-rose-600 font-medium" role="alert">
           {error}
         </p>
       )}

@@ -12,9 +12,7 @@ export interface NumberInputProps
 }
 
 /**
- * NumberInput — numeric input with an optional right-aligned unit suffix.
- * Always renders in DM Mono (font-mono) per the design rule that numbers
- * never render in a proportional font.
+ * NumberInput — Signal Centre style light background numeric input with crisp slate borders.
  */
 export function NumberInput({
   label,
@@ -45,7 +43,7 @@ export function NumberInput({
       {label && (
         <label
           htmlFor={id}
-          className="text-xs font-medium text-text-muted uppercase tracking-wide"
+          className="text-[11px] font-mono font-medium text-slate-500 uppercase tracking-wider"
         >
           {label}
         </label>
@@ -62,16 +60,16 @@ export function NumberInput({
           step={step}
           data-numeric
           className={[
-            "w-full bg-bg-inset text-text-primary font-mono text-sm",
-            "border rounded-md px-3 py-2",
+            "w-full bg-white text-slate-900 font-mono text-sm shadow-sm",
+            "border rounded-md px-3.5 py-2",
             unit ? "pr-12" : "",
-            "placeholder:text-text-muted/50 placeholder:font-body",
+            "placeholder:text-slate-400 placeholder:font-body",
             "transition-colors duration-150",
             "[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
-            "focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-1 focus:ring-offset-bg-base focus:border-accent",
+            "focus:outline-none focus:ring-2 focus:ring-slate-900 focus:border-slate-900",
             error
-              ? "border-danger focus:ring-danger"
-              : "border-border hover:border-accent-dim",
+              ? "border-rose-500 focus:ring-rose-500"
+              : "border-slate-300 hover:border-slate-400",
             className,
           ].join(" ")}
           aria-invalid={error ? "true" : undefined}
@@ -86,17 +84,17 @@ export function NumberInput({
           <span
             id={`${id}-unit`}
             aria-label={unit}
-            className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-text-muted font-mono text-sm"
+            className="pointer-events-none absolute inset-y-0 right-3.5 flex items-center text-slate-500 font-mono text-xs font-medium uppercase"
           >
             {unit}
           </span>
         )}
       </div>
       {helperText && !error && (
-        <p className="text-[11px] text-text-muted/80 font-sans">{helperText}</p>
+        <p className="text-[11px] text-slate-500 font-mono">{helperText}</p>
       )}
       {error && (
-        <p id={`${id}-error`} className="text-xs text-danger" role="alert">
+        <p id={`${id}-error`} className="text-xs text-rose-600 font-medium" role="alert">
           {error}
         </p>
       )}

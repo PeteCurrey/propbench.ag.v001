@@ -2,13 +2,10 @@ import React from "react";
 
 type WordmarkSize = "sm" | "md" | "lg";
 
-const sizeMap: Record<
-  WordmarkSize,
-  { text: string; rule: string; gap: string }
-> = {
-  sm: { text: "text-base", rule: "h-px w-full", gap: "gap-0.5" },
-  md: { text: "text-xl", rule: "h-px w-full", gap: "gap-1" },
-  lg: { text: "text-3xl", rule: "h-[2px] w-full", gap: "gap-1.5" },
+const sizeMap: Record<WordmarkSize, string> = {
+  sm: "text-base tracking-widest",
+  md: "text-lg tracking-widest",
+  lg: "text-2xl tracking-[0.2em]",
 };
 
 interface WordmarkProps {
@@ -17,28 +14,19 @@ interface WordmarkProps {
 }
 
 /**
- * PropBench wordmark — Syne 800, uppercase, with an accent-gold bench line.
- * Single source of truth for all sizes (header, footer, OG images).
+ * PropBench wordmark — Signal Centre style clean uppercase tracking.
+ * "PROP" in bold dark navy (#0F172A), "BENCH" in light regular slate (#64748B).
  */
 export function Wordmark({ size = "md", className = "" }: WordmarkProps) {
-  const { text, rule, gap } = sizeMap[size];
+  const sizeClass = sizeMap[size];
 
   return (
     <span
-      className={`inline-flex flex-col items-start ${gap} ${className}`}
+      className={`inline-flex items-center gap-1.5 font-display uppercase leading-none select-none ${sizeClass} ${className}`}
       aria-label="PropBench"
     >
-      <span
-        className={`font-display font-extrabold tracking-tighter uppercase text-text-primary leading-none ${text}`}
-        style={{ fontWeight: 800 }}
-      >
-        PROPBENCH
-      </span>
-      {/* The bench line — single accent-gold rule beneath the wordmark */}
-      <span
-        className={`${rule} bg-accent block`}
-        aria-hidden="true"
-      />
+      <span className="font-extrabold text-slate-900">PROP</span>
+      <span className="font-medium text-slate-500">BENCH</span>
     </span>
   );
 }

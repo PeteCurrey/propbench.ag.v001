@@ -11,25 +11,24 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-accent text-bg-base font-semibold hover:bg-accent/90 active:bg-accent/80 " +
-    "border border-accent shadow-sm",
+    "bg-[#1B2A4A] text-white font-mono uppercase tracking-wider font-semibold hover:bg-[#0F172A] active:bg-[#0A1224] " +
+    "border border-[#1B2A4A] shadow-sm",
   secondary:
-    "bg-transparent text-text-primary border border-border hover:border-accent-dim " +
-    "hover:text-accent active:bg-bg-raised",
+    "bg-white text-slate-800 font-mono uppercase tracking-wider font-medium border border-slate-300 hover:bg-slate-50 " +
+    "hover:border-slate-400 active:bg-slate-100 shadow-sm",
   ghost:
-    "bg-transparent text-text-muted border border-transparent hover:text-text-primary " +
-    "hover:bg-bg-raised active:bg-bg-inset",
+    "bg-transparent text-slate-600 font-mono uppercase tracking-wider border border-transparent hover:text-slate-900 " +
+    "hover:bg-slate-100 active:bg-slate-200",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "text-xs px-3 py-1.5 rounded",
-  md: "text-sm px-4 py-2 rounded-md",
-  lg: "text-base px-6 py-3 rounded-md",
+  sm: "text-xs px-3.5 py-1.5 rounded",
+  md: "text-xs px-5 py-2.5 rounded-md",
+  lg: "text-xs px-7 py-3.5 rounded-md font-bold",
 };
 
 /**
- * Button — three variants: primary (gold), secondary (outline), ghost.
- * All sizing uses rem-based values for accessibility.
+ * Button — Signal Centre style corporate navy primary & crisp outline secondary.
  */
 export function Button({
   variant = "primary",
@@ -42,9 +41,9 @@ export function Button({
     <button
       className={[
         "inline-flex items-center justify-center gap-2",
-        "font-body transition-colors duration-150",
+        "transition-all duration-150 select-none",
         "disabled:opacity-40 disabled:cursor-not-allowed",
-        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2",
         variantClasses[variant],
         sizeClasses[size],
         className,
