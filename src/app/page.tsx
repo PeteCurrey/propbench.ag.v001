@@ -50,7 +50,7 @@ export default function HomePage() {
     ],
   };
 
-  // Compute stats directly from pure functions in /lib/calc
+  // Compute stats directly from pure functions in /lib/calc and live data layer
   const streakLosses = losingStreakTable(100000, 5, 10, 8);
   const stat1CumulativeLossPct = streakLosses[7]?.cumulativeLossPct ?? 33.66;
 
@@ -91,12 +91,14 @@ export default function HomePage() {
       {/* ── 1. Signal Centre Style Hero Section ────────────────────────────── */}
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8 pb-10 border-b border-slate-200">
         <div className="lg:col-span-7 text-left space-y-7">
-          {/* Signal Centre Live Intelligence Badge */}
+          {/* Signal Centre Live Intelligence Badge — dynamically sourced from live data layer */}
           <div className="badge-pill">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span>PURE CALCULATION ENGINE</span>
             <span className="text-slate-300">|</span>
-            <span className="text-slate-500">13 TOOLS ACTIVE</span>
+            <span className="text-slate-500">{TOOLS_DIRECTORY.length} TOOLS ACTIVE</span>
+            <span className="text-slate-300">|</span>
+            <span className="text-slate-500">{firms.length} FIRMS VERIFIED</span>
           </div>
 
           <h1 className="font-display font-extrabold text-4xl sm:text-6xl text-slate-900 tracking-tight leading-[1.1]">
@@ -138,7 +140,7 @@ export default function HomePage() {
           </h2>
         </div>
 
-        {/* Signal Centre Divided Grid Box */}
+        {/* Signal Centre Divided Grid Box — all values strictly computed from pure functions */}
         <div className="grid grid-cols-1 md:grid-cols-4 border border-slate-200 divide-y md:divide-y-0 md:divide-x divide-slate-200 rounded-lg bg-white shadow-sm overflow-hidden p-2">
           <Stat
             label="8 Losses @ 5% Risk"
