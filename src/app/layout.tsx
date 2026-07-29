@@ -1,31 +1,28 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@/components/layout/Analytics";
 
-/* ─── Fonts (self-hosted woff2 matching Signal Centre typography) ─────────── */
+/* ─── Fonts — IBM Plex Sans + IBM Plex Mono (exact Signal Centre match) ─────
+ *  Confirmed from live CSS bundle: signal-centre-ag-v001-one.vercel.app
+ *  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif
+ *  --font-mono: "IBM Plex Mono", "Courier New", monospace
+ * ─────────────────────────────────────────────────────────────────────────── */
 
-const inter = localFont({
-  src: [
-    { path: "./fonts/inter-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/inter-500.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/inter-600.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/inter-700.woff2", weight: "700", style: "normal" },
-    { path: "./fonts/inter-800.woff2", weight: "800", style: "normal" },
-  ],
-  variable: "--font-inter",
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
   display: "swap",
   preload: true,
 });
 
-const dmMono = localFont({
-  src: [
-    { path: "./fonts/dm-mono-400.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/dm-mono-500.woff2", weight: "500", style: "normal" },
-  ],
-  variable: "--font-dm-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-mono",
   display: "swap",
   preload: true,
 });
@@ -58,15 +55,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${dmMono.variable}`}
+      className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
     >
-      <head>
-        {/* Preload critical self-hosted woff2 fonts */}
-        <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/dm-mono-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-      </head>
-      <body className="min-h-screen flex flex-col antialiased bg-white text-slate-900 font-body">
+      <body className="min-h-screen flex flex-col antialiased bg-white text-slate-900">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

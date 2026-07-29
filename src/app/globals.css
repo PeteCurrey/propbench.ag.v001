@@ -2,70 +2,204 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ─── Signal Centre Light Corporate Design Token CSS variables ────────────── */
+/* ─── Signal Centre Design System — CSS Variables ─────────────────────────────
+ *  Exact tokens confirmed from live CSS bundle:
+ *  https://signal-centre-ag-v001-one.vercel.app/_next/static/chunks/33e6so_jd4x5z.css
+ * ─────────────────────────────────────────────────────────────────────────── */
 :root {
-  --color-bg-base: #ffffff;
-  --color-bg-raised: #f8fafc;
-  --color-bg-inset: #f1f5f9;
-  --color-border: #e2e8f0;
-  --color-border-strong: #cbd5e1;
-  --color-text-primary: #0f172a;
-  --color-text-secondary: #334155;
-  --color-text-muted: #64748b;
-  --color-accent: #1b2a4a;
-  --color-accent-hover: #0f172a;
-  --color-accent-blue: #2563eb;
-  --color-accent-dim: #94a3b8;
-  --color-positive: #16a34a;
-  --color-warning: #d97706;
-  --color-danger: #dc2626;
+  /* Backgrounds */
+  --bg-base: #ffffff;
+  --bg-warm: #fafaf8;
+  --bg-stone: #f3f3f1;
+  --bg-subtle: #eeede9;
+
+  /* Borders */
+  --border: #e0dfdb;
+  --border-strong: #c8c7c3;
+  --border-navy: rgba(35, 65, 102, 0.125);
+
+  /* Typography */
+  --text-primary: #172436;
+  --text-secondary: #3e4b5c;
+  --text-muted: #738091;
+  --text-disabled: #b0b8c0;
+
+  /* Brand — navy */
+  --navy: #234166;
+  --navy-light: #345c8f;
+  --navy-muted: #e8eff5;
+
+  /* Semantic states */
+  --green: #2f5d50;
+  --green-light: #3b7063;
+  --green-bg: #f0f5f3;
+  --burgundy: #5b2c2c;
+  --burgundy-light: #7a3b3b;
+  --burgundy-bg: #f8f0f0;
+  --amber: #8b6914;
+  --amber-bg: #fdf6e3;
+
+  /* Neutral accents */
+  --platinum: #d9d9d6;
+  --platinum-light: #ebebea;
+
+  /* Fonts — IBM Plex (Signal Centre exact) */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  /* Spacing (Signal Centre --space-N scale) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* Layout */
+  --max-width: 1440px;
+  --header-height: 56px;
+
+  /* Motion */
+  --duration-fast: 0.1s;
+  --duration-base: 0.15s;
+  --duration-slow: 0.2s;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* ─── Base layer ──────────────────────────────────────────────────────────── */
 @layer base {
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #ffffff;
-    color: #0f172a;
+    text-rendering: optimizeLegibility;
+    font-size: 16px;
+    scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-bg-base text-text-primary font-body;
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background-color: var(--bg-base);
+    min-height: 100vh;
+    font-weight: 400;
+    line-height: 1.6;
     overflow-x: hidden;
   }
 
-  /* All numeric output must render in DM Mono — enforced here and in Tailwind */
-  .font-mono,
-  [data-numeric] {
-    font-variant-numeric: tabular-nums;
-    font-feature-settings: "tnum";
+  /* Signal Centre heading hierarchy — font-weight: 500, letter-spacing: -0.015em */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.25;
   }
 
-  /* Focus ring for accessible corporate look */
-  *:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-    border-radius: 4px;
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.125rem; }
+  h4 { font-size: 1rem; font-weight: 500; }
+  h5 { font-size: 0.875rem; font-weight: 500; }
+  h6 { letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.8125rem; font-weight: 600; }
+
+  p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  a {
+    color: var(--navy);
+    transition: color var(--duration-base) var(--ease);
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: var(--navy-light);
+  }
+
+  /* Tabular numerics — enforced on all mono/data elements */
+  .font-mono,
+  [data-numeric] {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1;
+    letter-spacing: 0;
   }
 
   hr {
-    border-color: var(--color-border);
+    border-color: var(--border);
+  }
+
+  /* Focus ring — Signal Centre navy outline */
+  *:focus-visible {
+    outline: 2px solid var(--navy);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background-color: var(--navy-muted);
+    color: var(--navy);
   }
 }
 
 /* ─── Component utilities ─────────────────────────────────────────────────── */
 @layer components {
-  /* Clean glassmorphism header backdrop */
+  /* Signal Centre glass header backdrop */
   .header-backdrop {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: rgba(255, 255, 255, 0.92);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
 
-  /* Signal Centre Pill Badge */
+  /* Signal Centre Live Intelligence Pill Badge
+   * Matches: inline-flex, border, 6px green pulse dot, IBM Plex Mono, uppercase */
   .badge-pill {
-    @apply inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[11px] font-mono font-medium tracking-wider uppercase text-slate-700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 4px 12px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-warm);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+  }
+
+  /* Signal Centre Section label (overline style) */
+  .label-overline {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
   }
 }
+
+/* ─── Signal Centre Animations ────────────────────────────────────────────── */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in { animation: fade-in 0.2s var(--ease) both; }
+.animate-fade-in-up { animation: fade-in-up 0.3s var(--ease) both; }
+.animate-pulse-subtle { animation: skeleton-pulse 2s ease-in-out infinite; }
