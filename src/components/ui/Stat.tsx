@@ -15,10 +15,10 @@ interface StatProps {
 }
 
 const stateColour: Record<StatState, string> = {
-  positive: "text-emerald-600",
-  warning: "text-amber-600",
-  danger: "text-rose-600",
-  neutral: "text-slate-900",
+  positive: "text-positive",
+  warning: "text-warning",
+  danger: "text-danger",
+  neutral: "text-accent",
 };
 
 /**
@@ -36,11 +36,11 @@ export function Stat({
   const isNull = value === null;
 
   return (
-    <div className={`flex flex-col justify-between p-2 ${className}`}>
+    <div className={`flex flex-col justify-between p-6 ${className}`}>
       <span
         className={[
-          "font-mono text-3xl sm:text-4xl font-normal leading-tight tabular-nums tracking-tight mb-2",
-          isNull ? "text-slate-400 italic text-lg" : colour,
+          "font-mono text-2xl sm:text-3xl font-medium leading-tight tabular-nums tracking-tight mb-1.5",
+          isNull ? "text-text-disabled italic text-lg" : colour,
         ].join(" ")}
         data-numeric
         aria-label={isNull ? "Not available" : value}
@@ -48,11 +48,11 @@ export function Stat({
         {isNull ? "—" : value}
       </span>
       <div>
-        <span className="text-[11px] font-mono font-medium text-slate-500 uppercase tracking-wider block">
+        <span className="text-[11px] font-mono font-medium text-text-muted uppercase tracking-wider block">
           {label}
         </span>
         {sub && (
-          <span className="text-[10px] font-mono text-slate-400 block mt-0.5">{sub}</span>
+          <span className="text-[10px] font-mono text-text-disabled block mt-0.5">{sub}</span>
         )}
       </div>
     </div>

@@ -5,18 +5,13 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@/components/layout/Analytics";
 
-/* ─── Fonts — IBM Plex Sans + IBM Plex Mono (exact Signal Centre match) ─────
- *  Confirmed from live CSS bundle: signal-centre-ag-v001-one.vercel.app
- *  --font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif
- *  --font-mono: "IBM Plex Mono", "Courier New", monospace
- * ─────────────────────────────────────────────────────────────────────────── */
+/* ─── Google Fonts (matching Signal Centre typography) ────────────────────── */
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
   display: "swap",
-  preload: true,
 });
 
 const ibmPlexMono = IBM_Plex_Mono({
@@ -24,7 +19,6 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500", "600"],
   variable: "--font-mono",
   display: "swap",
-  preload: true,
 });
 
 /* ─── Metadata ───────────────────────────────────────────────────────────── */
@@ -57,7 +51,7 @@ export default function RootLayout({
       lang="en"
       className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}
     >
-      <body className="min-h-screen flex flex-col antialiased bg-white text-slate-900">
+      <body className="min-h-screen flex flex-col antialiased bg-bg-base text-text-primary font-body">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

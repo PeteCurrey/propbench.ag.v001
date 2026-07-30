@@ -89,7 +89,7 @@ export default function HomePage() {
       />
 
       {/* ── 1. Signal Centre Style Hero Section ────────────────────────────── */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8 pb-10 border-b border-slate-200">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center pt-8 pb-10 border-b border-border">
         <div className="lg:col-span-7 text-left space-y-7">
           {/* Signal Centre Live Intelligence Badge — dynamically sourced from live data layer */}
           <div className="badge-pill">
@@ -101,11 +101,11 @@ export default function HomePage() {
             <span className="text-slate-500">{firms.length} FIRMS VERIFIED</span>
           </div>
 
-          <h1 className="font-display font-extrabold text-4xl sm:text-6xl text-slate-900 tracking-tight leading-[1.1]">
+          <h1 className="font-display font-extrabold text-4xl sm:text-6xl text-text-primary tracking-tight leading-[1.1]">
             Market intelligence for prop traders.
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl font-body">
+          <p className="text-base sm:text-lg text-text-secondary leading-relaxed max-w-2xl font-body">
             Pure calculation models and verified evaluation parameters across prop trading firms. Built for disciplined traders, prop desks, and evaluation participants who require mathematical precision over noise.
           </p>
 
@@ -132,39 +132,43 @@ export default function HomePage() {
       {/* ── 2. Signal Centre Divided Stat Grid Box ─────────────────────────── */}
       <section className="space-y-4">
         <div className="text-left">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-slate-500 mb-1 font-semibold">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-text-muted mb-1 font-semibold">
             Engine Computations
           </p>
-          <h2 className="font-display font-bold text-xl text-slate-900">
+          <h2 className="font-display font-bold text-xl text-text-primary">
             Why drawdown mathematics matter.
           </h2>
         </div>
 
         {/* Signal Centre Divided Grid Box — all values strictly computed from pure functions */}
-        <div className="grid grid-cols-1 md:grid-cols-4 border border-slate-200 divide-y md:divide-y-0 md:divide-x divide-slate-200 rounded-lg bg-white shadow-sm overflow-hidden p-2">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 border-t border-l border-border bg-bg-base">
           <Stat
             label="8 Losses @ 5% Risk"
             value={`-${stat1CumulativeLossPct}%`}
             state="danger"
             sub="Cumulative drawdown"
+            className="border-r border-b border-border"
           />
           <Stat
             label="Losses to Breach @ 1%"
             value={`${stat2LossesToBreach} trades`}
             state="warning"
             sub="Max consecutive losses"
+            className="border-r border-b border-border"
           />
           <Stat
             label="Daily Return Pace"
             value={`+${stat3DailyPacePct}% / day`}
             state="positive"
             sub="8% target in 20 days"
+            className="border-r border-b border-border"
           />
           <Stat
             label="Verified Firms"
             value={`${firms.length} Firms`}
             state="neutral"
             sub="Independent T&C audits"
+            className="border-r border-b border-border"
           />
         </div>
       </section>
@@ -172,10 +176,10 @@ export default function HomePage() {
       {/* ── 3. Four Core Tools Cards ───────────────────────────────────────── */}
       <section className="space-y-6">
         <div className="text-left">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-slate-500 mb-1 font-semibold">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-text-muted mb-1 font-semibold">
             Primary Calculators
           </p>
-          <h2 className="font-display font-bold text-2xl text-slate-900">
+          <h2 className="font-display font-bold text-2xl text-text-primary">
             Core Risk Calculators
           </h2>
         </div>
@@ -183,19 +187,19 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {coreTools.map((tool) => (
             <Link key={tool.slug} href={`/tools/${tool.slug}`} className="group block">
-              <Card className="h-full flex flex-col justify-between p-6 transition-all group-hover:border-slate-400 group-hover:shadow-md">
+              <Card className="h-full flex flex-col justify-between p-6 transition-all group-hover:border-border-strong">
                 <div>
-                  <span className="text-[10px] font-mono font-semibold uppercase tracking-wider px-2.5 py-1 rounded bg-slate-100 text-slate-600 border border-slate-200 inline-block mb-3">
+                  <span className="text-[10px] font-mono font-semibold uppercase tracking-wider px-2.5 py-1 rounded-none bg-bg-inset text-text-secondary border border-border inline-block mb-3">
                     {tool.category}
                   </span>
-                  <h3 className="font-display font-bold text-xl text-slate-900 group-hover:text-blue-700 transition-colors mb-2">
+                  <h3 className="font-display font-bold text-xl text-text-primary group-hover:text-accent-hover transition-colors mb-2">
                     {tool.name}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                  <p className="text-xs sm:text-sm text-text-secondary leading-relaxed mb-6">
                     {tool.description}
                   </p>
                 </div>
-                <div className="pt-4 border-t border-slate-200 font-mono text-xs text-[#1B2A4A] font-bold flex items-center justify-between">
+                <div className="pt-4 border-t border-border font-mono text-xs text-accent font-bold flex items-center justify-between">
                   <span>Input: {tool.primaryInput}</span>
                   <span className="group-hover:translate-x-1 transition-transform">
                     Open Calculator &rarr;
@@ -210,10 +214,10 @@ export default function HomePage() {
       {/* ── 4. Verified Firms Strip ───────────────────────────────────────── */}
       <section className="space-y-4">
         <div className="text-left">
-          <p className="font-mono text-[11px] uppercase tracking-widest text-slate-500 mb-1 font-semibold">
+          <p className="font-mono text-[11px] uppercase tracking-widest text-text-muted mb-1 font-semibold">
             Firm Database
           </p>
-          <h2 className="font-display font-bold text-xl text-slate-900">
+          <h2 className="font-display font-bold text-xl text-text-primary">
             Verified Proprietary Trading Firms
           </h2>
         </div>
@@ -221,11 +225,11 @@ export default function HomePage() {
         <div className="flex flex-wrap gap-4">
           {firms.map((firm) => (
             <Link key={firm.slug} href={`/firms/${firm.slug}`} className="group block">
-              <Card className="px-6 py-4 flex items-center gap-4 hover:border-slate-400 transition-all shadow-sm">
-                <span className="font-display font-bold text-sm text-slate-900 group-hover:text-blue-700 transition-colors">
+              <Card className="px-6 py-4 flex items-center gap-4 hover:border-border-strong transition-colors">
+                <span className="font-display font-bold text-sm text-text-primary group-hover:text-accent-hover transition-colors">
                   {firm.name}
                 </span>
-                <span className="font-mono text-[10px] text-slate-500 border border-slate-200 px-2 py-0.5 rounded bg-slate-50">
+                <span className="font-mono text-[10px] text-text-muted border border-border px-2 py-0.5 rounded-none bg-bg-raised">
                   View Parameters &rarr;
                 </span>
               </Card>
@@ -238,10 +242,10 @@ export default function HomePage() {
       <TradingViewSection />
 
       {/* ── 6. The PDF Survival Kit Highlight Section ────────────────────── */}
-      <section className="p-8 sm:p-10 rounded-xl bg-white border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <section className="p-8 sm:p-10 rounded-none bg-bg-base border border-border grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         <div className="lg:col-span-4 flex justify-center">
           {/* PDF Cover Mock */}
-          <div className="w-48 h-64 bg-slate-900 border-2 border-slate-800 rounded-lg shadow-xl p-5 flex flex-col justify-between text-left text-white">
+          <div className="w-48 h-64 bg-slate-900 border-2 border-slate-800 rounded-none shadow-xl p-5 flex flex-col justify-between text-left text-white">
             <div>
               <span className="font-mono text-[9px] uppercase tracking-widest text-blue-400 block font-bold">
                 Reference Manual
@@ -257,17 +261,17 @@ export default function HomePage() {
         </div>
 
         <div className="lg:col-span-8 space-y-5 text-left">
-          <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-[#1B2A4A] block">
+          <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-accent block">
             Digital Reference PDF
           </span>
-          <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-900">
+          <h2 className="font-display font-bold text-2xl sm:text-3xl text-text-primary">
             The Prop Trading Survival Kit
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+          <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
             The definitive technical manual covering drawdown mechanics, position sizing tables, daily loss reset timing traps, and evaluation risk budgeting.
           </p>
           <div className="pt-2 flex items-center gap-5">
-            <span className="font-mono text-2xl font-bold text-slate-900">
+            <span className="font-mono text-2xl font-bold text-text-primary">
               £29
             </span>
             <Link href="/survival-kit">
@@ -283,14 +287,14 @@ export default function HomePage() {
       <section className="space-y-6">
         <div className="flex items-center justify-between text-left">
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-widest text-slate-500 mb-1 font-semibold">
+            <p className="font-mono text-[11px] uppercase tracking-widest text-text-muted mb-1 font-semibold">
               Research &amp; Guides
             </p>
-            <h2 className="font-display font-bold text-2xl text-slate-900">
+            <h2 className="font-display font-bold text-2xl text-text-primary">
               Recent Educational Guides
             </h2>
           </div>
-          <Link href="/guides" className="text-xs font-mono text-blue-700 font-semibold hover:underline">
+          <Link href="/guides" className="text-xs font-mono text-accent font-semibold hover:underline">
             View All Guides &rarr;
           </Link>
         </div>
@@ -298,17 +302,17 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {recentGuides.map((guide) => (
             <Link key={guide.slug} href={`/guides/${guide.slug}`} className="group block">
-              <Card className="h-full flex flex-col justify-between p-6 hover:border-slate-400 transition-all">
+              <Card className="h-full flex flex-col justify-between p-6 hover:border-border-strong transition-colors">
                 <div>
-                  <span className="text-[10px] font-mono text-slate-500 block mb-2 font-medium">
+                  <span className="text-[10px] font-mono text-text-muted block mb-2 font-medium">
                     {guide.publishedDate}
                   </span>
-                  <h3 className="font-display font-bold text-base text-slate-900 group-hover:text-blue-700 transition-colors mb-2 leading-snug">
+                  <h3 className="font-display font-bold text-base text-text-primary group-hover:text-accent-hover transition-colors mb-2 leading-snug">
                     {guide.title}
                   </h3>
-                  <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">{guide.description}</p>
+                  <p className="text-xs text-text-secondary line-clamp-3 leading-relaxed">{guide.description}</p>
                 </div>
-                <div className="pt-4 mt-5 border-t border-slate-200 text-xs font-mono text-[#1B2A4A] font-bold">
+                <div className="pt-4 mt-5 border-t border-border text-xs font-mono text-accent font-bold">
                   Read Guide &rarr;
                 </div>
               </Card>
@@ -318,11 +322,11 @@ export default function HomePage() {
       </section>
 
       {/* ── 8. Footer with Risk Warning & Affiliate Disclosure ───────────── */}
-      <footer className="pt-10 border-t border-slate-200 space-y-6 text-left">
+      <footer className="pt-10 border-t border-border space-y-6 text-left">
         <AffiliateDisclosure />
 
-        <div className="p-5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-600 leading-relaxed space-y-2">
-          <p className="font-mono uppercase text-[10px] text-amber-700 font-bold tracking-wider">
+        <div className="p-5 rounded-none bg-bg-raised border border-border text-xs text-text-secondary leading-relaxed space-y-2">
+          <p className="font-mono uppercase text-[10px] text-warning font-bold tracking-wider">
             FCA Financial Risk Warning Notice
           </p>
           <p>

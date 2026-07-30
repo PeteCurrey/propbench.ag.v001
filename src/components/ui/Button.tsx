@@ -11,20 +11,20 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-[#1B2A4A] text-white font-mono uppercase tracking-wider font-semibold hover:bg-[#0F172A] active:bg-[#0A1224] " +
-    "border border-[#1B2A4A] shadow-sm",
+    "bg-accent text-bg-base font-sans font-medium tracking-wider hover:bg-accent-hover active:bg-slate-950 " +
+    "border border-accent transition-colors",
   secondary:
-    "bg-white text-slate-800 font-mono uppercase tracking-wider font-medium border border-slate-300 hover:bg-slate-50 " +
-    "hover:border-slate-400 active:bg-slate-100 shadow-sm",
+    "bg-transparent text-text-secondary font-sans font-normal border border-border-strong hover:border-text-secondary " +
+    "active:bg-bg-raised transition-colors",
   ghost:
-    "bg-transparent text-slate-600 font-mono uppercase tracking-wider border border-transparent hover:text-slate-900 " +
-    "hover:bg-slate-100 active:bg-slate-200",
+    "bg-transparent text-text-muted font-sans font-normal border border-transparent hover:text-text-primary " +
+    "hover:bg-bg-raised active:bg-bg-inset transition-colors",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
-  sm: "text-xs px-3.5 py-1.5 rounded",
-  md: "text-xs px-5 py-2.5 rounded-md",
-  lg: "text-xs px-7 py-3.5 rounded-md font-bold",
+  sm: "text-[0.8125rem] px-4 py-2",
+  md: "text-[0.875rem] px-6 py-2.5",
+  lg: "text-[0.875rem] px-7 py-3",
 };
 
 /**

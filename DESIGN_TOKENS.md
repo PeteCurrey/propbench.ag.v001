@@ -1,157 +1,80 @@
 # Signal Centre Design System Tokens (PropBench Theme Specification)
 
-Tokens verified directly from the live CSS bundle at:
-`https://signal-centre-ag-v001-one.vercel.app/_next/static/chunks/33e6so_jd4x5z.css`
+This document specifies the exact visual design tokens extracted from the Signal Centre institutional corporate design system (`signal-centre-ag-v001-one.vercel.app`). These tokens govern all typography, color palettes, spacing, borders, status badges, and component layouts across both the public-facing platform and internal operational dashboard.
 
 ---
 
-## 1. Typography — Confirmed Fonts
+## 1. Color Palette Tokens
 
-| Role | Font Family | CSS Variable |
-| :--- | :--- | :--- |
-| **Display & Body** | `IBM Plex Sans` (weights 300, 400, 500, 600, 700) | `--font-sans` |
-| **Monospace & Data** | `IBM Plex Mono` (weights 400, 500, 600) | `--font-mono` |
+### Institutional Neutral Palette
+| Token Name | CSS Variable | Hex Code | Primary Usage |
+| :--- | :--- | :--- | :--- |
+| `bg-base` / `surface-base` | `--color-bg-base` | `#FFFFFF` | Page base background, primary white card container |
+| `bg-raised` / `surface-elevated` | `--color-bg-raised` | `#FAFAF8` | Elevated warm off-white card panels, table headers |
+| `bg-inset` / `surface-inset` | `--color-bg-inset` | `#F3F3F1` | Inset metric cards, stone background panels |
+| `border` | `--color-border` | `#E0DFDB` | Default razor-sharp hairline borders |
+| `border-strong` | `--color-border-strong` | `#C8C7C3` | Interactive element hover borders, focus boundaries |
 
-**Source in CSS bundle:**
-```css
---font-sans: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
---font-mono: "IBM Plex Mono", "Courier New", monospace;
-```
+### Typography Colors
+| Token Name | CSS Variable | Hex Code | Primary Usage |
+| :--- | :--- | :--- | :--- |
+| `text-primary` | `--color-text-primary` | `#172436` | Primary headlines, strong titles, key metrics |
+| `text-secondary` | `--color-text-secondary` | `#3E4B5C` | Secondary section headers, form labels |
+| `text-muted` | `--color-text-muted` | `#738091` | Body copy, muted captions, table metadata |
+| `text-disabled` | `--color-text-disabled` | `#B0B8C0` | Placeholders, inactive labels, muted dates |
 
-**Heading style:**
-- `font-weight: 500` (not bold — this is the key institutional distinction)
-- `letter-spacing: -0.015em`
-- `line-height: 1.25`
+### Institutional Brand Accents & Semantic States
+| Token Name | CSS Variable | Hex Code | Primary Usage |
+| :--- | :--- | :--- | :--- |
+| `accent` | `--color-accent` | `#234166` | Corporate Deep Navy — primary CTAs, active active links |
+| `accent-hover` | `--color-accent-hover` | `#345C8F` | Navy light hover state |
+| `accent-blue` | `--color-accent-blue` | `#345C8F` | Link focus, indicators |
+| `positive` | `--color-positive` | `#2F5D50` | Profit targets, safe zones, compliant status (Hunter Green) |
+| `warning` | `--color-warning` | `#8B6914` | Warning proximity zones, legal notices (Amber) |
+| `danger` | `--color-danger` | `#5B2C2C` | Drawdown breach floors, danger zones (Burgundy) |
 
 ---
 
-## 2. Color Palette — Confirmed Hex Values
+## 2. Typography Specification
 
-### Backgrounds
-| Token | CSS Variable | Hex | Usage |
-| :--- | :--- | :--- | :--- |
-| Base white | `--bg-base` | `#FFFFFF` | Page background |
-| Warm off-white | `--bg-warm` | `#FAFAF8` | Section alternates, badge bg |
-| Stone | `--bg-stone` | `#F3F3F1` | Inset panels, form bg |
-| Subtle | `--bg-subtle` | `#EEEDEA` | Deep inset |
-
-### Typography
-| Token | CSS Variable | Hex | Usage |
-| :--- | :--- | :--- | :--- |
-| Primary text | `--text-primary` | `#172436` | Headlines, key data |
-| Secondary text | `--text-secondary` | `#3E4B5C` | Body copy |
-| Muted text | `--text-muted` | `#738091` | Labels, captions |
-| Disabled text | `--text-disabled` | `#B0B8C0` | Inactive elements |
-
-### Brand
-| Token | CSS Variable | Hex | Usage |
-| :--- | :--- | :--- | :--- |
-| Navy (primary) | `--navy` | `#234166` | CTAs, active states |
-| Navy light | `--navy-light` | `#345C8F` | Hover state |
-| Navy muted | `--navy-muted` | `#E8EFF5` | Selection bg |
-
-### Semantic States
-| Token | CSS Variable | Hex | Usage |
-| :--- | :--- | :--- | :--- |
-| Positive / Green | `--green` | `#2F5D50` | Safe zones, compliant |
-| Amber / Warning | `--amber` | `#8B6914` | Caution states |
-| Burgundy / Danger | `--burgundy` | `#5B2C2C` | Breach / danger zones |
-
-### Borders & Neutrals
-| Token | CSS Variable | Hex | Usage |
-| :--- | :--- | :--- | :--- |
-| Default border | `--border` | `#E0DFDB` | Hairline dividers |
-| Strong border | `--border-strong` | `#C8C7C3` | Interactive borders |
-| Platinum | `--platinum` | `#D9D9D6` | Separator lines |
+- **Display & Headline Font**: `IBM Plex Sans` (weights: 300, 400, 500, 600, 700) with tracking `-0.015em`.
+- **Body & Copy Font**: `IBM Plex Sans` (weights: 400, 500) with line-height `1.6`.
+- **Numeric & Monospace Font**: `IBM Plex Mono` (weights: 400, 500, 600) with `font-variant-numeric: tabular-nums` enforced site-wide for tabular alignment.
 
 ---
 
-## 3. Spacing Scale
-Signal Centre uses a fixed `--space-N` scale (rem units):
+## 3. Component Design System & Layout Standards
 
-| Token | Value |
-| :--- | :--- |
-| `--space-1` | `0.25rem` |
-| `--space-2` | `0.5rem` |
-| `--space-3` | `0.75rem` |
-| `--space-4` | `1rem` |
-| `--space-6` | `1.5rem` |
-| `--space-8` | `2rem` |
-| `--space-12` | `3rem` |
-| `--space-16` | `4rem` |
-| `--space-20` | `5rem` |
-| `--space-24` | `6rem` |
+### Live Intelligence Pill Badges (`.badge-pill`)
+```css
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 4px 12px;
+  border-radius: 0;
+  background-color: var(--color-bg-raised);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+```
+
+### Signal Centre Divided Stat Grid Box
+Single container box divided into equal columns with razor-sharp vertical hairline dividers (`border-t border-l border-border bg-bg-base`). Large tabular numbers on top (`font-mono text-2xl font-medium text-accent`), uppercase tracked labels below. Each inner cell has `border-r border-b border-border` to form a seamless grid layout.
+
+### Buttons & Interactive Controls
+- **Primary Button**: Solid Corporate Navy (`bg-accent text-bg-base hover:bg-accent-hover`) with sharp corner layout (`rounded-none`) and sans-serif typography (`font-sans text-sm tracking-wide`).
+- **Secondary Button**: Clean White Outline (`bg-transparent border border-border-strong text-text-secondary hover:border-text-secondary rounded-none`).
 
 ---
 
-## 4. Component Design System
+## 4. Strict Data & Stat Policy (Rule 1 & Rule 4)
 
-### Live Intelligence Pill Badge (`.badge-pill`)
-```css
-display: inline-flex;
-align-items: center;
-gap: 0.75rem;
-padding: 4px 12px;
-border: 1px solid var(--border);        /* #E0DFDB */
-background-color: var(--bg-warm);       /* #FAFAF8 */
-font-family: var(--font-mono);          /* IBM Plex Mono */
-font-size: 0.6875rem;
-font-weight: 500;
-letter-spacing: 0.08em;
-text-transform: uppercase;
-color: var(--text-muted);              /* #738091 */
-```
-
-### Divided Stat Grid Box
-Single border container with hairline internal dividers:
-```css
-border: 1px solid var(--border);
-border-left: 1px solid var(--border);
-border-top: 1px solid var(--border);
-/* Each cell: */
-border-right: 1px solid var(--border);
-border-bottom: 1px solid var(--border);
-padding: var(--space-6);
-```
-Numbers: `font-family: var(--font-mono); font-size: 1.5rem; font-weight: 500; color: var(--navy)`
-Labels: `font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.01em`
-
-### Primary Button (CTA)
-```css
-background-color: var(--navy);        /* #234166 */
-color: var(--bg-base);
-padding: 12px 28px;
-font-size: 0.875rem;
-font-weight: 500;
-letter-spacing: 0.03em;
-/* No border-radius — sharp corners */
-```
-
-### Secondary Button (Outline)
-```css
-border: 1px solid var(--border-strong);  /* #C8C7C3 */
-background-color: transparent;
-color: var(--text-secondary);
-padding: 12px 28px;
-font-size: 0.875rem;
-font-weight: 400;
-letter-spacing: 0.03em;
-/* No border-radius — sharp corners */
-```
-
-### Section Overline Label
-```css
-font-size: 0.6875rem;
-font-weight: 600;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-color: var(--text-muted);
-```
-
----
-
-## 5. Strict Data & Stat Policy (Rule 1 & Rule 4)
-
-1. **Zero Fabricated Stats**: No static hardcoded numbers (e.g. "47 Instruments Monitored" / "0 INSTRUMENTS ACTIVE" contradiction in old build).
-2. **Dynamic Sourcing Only**: Every number displayed must come from the live data layer (`firms.length`, `TOOLS_DIRECTORY.length`) or pure calculation functions in `/lib/calc`.
-3. **Honest Omission**: If a stat cannot be backed by verified live data, it is dropped rather than invented.
+1. **Zero Fabricated Stats**: No static hardcoded numbers or contradictory mock copy (e.g. "47 Instruments Monitored" / "0 Active").
+2. **Dynamic Sourcing**: Every stat displayed on the public website and ops dashboard must originate directly from the live data layer (`firms.length`, registered tools count) or pure calculation functions in `/lib/calc`.
+3. **Honest Omission**: If a stat cannot be backed by verified live data or pure calculation logic, it is omitted rather than simulated.

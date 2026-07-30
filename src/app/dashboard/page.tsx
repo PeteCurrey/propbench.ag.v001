@@ -292,12 +292,12 @@ export default function DashboardPage() {
   return (
     <div className="mx-auto max-w-content px-4 sm:px-6 lg:px-8 py-12 text-left space-y-8">
       {/* Header & Tier Status — Signal Centre Design System */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-6">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border pb-6">
         <div>
-          <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-[#1B2A4A] block mb-1">
+          <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-accent block mb-1">
             PropBench Ops Dashboard
           </span>
-          <h1 className="font-display font-extrabold text-3xl text-slate-900 tracking-tight">
+          <h1 className="font-display font-extrabold text-3xl text-text-primary tracking-tight">
             Saved Accounts &amp; Risk Monitor
           </h1>
         </div>
@@ -305,7 +305,7 @@ export default function DashboardPage() {
         <div className="flex items-center gap-3">
           <span className="badge-pill">
             <span>Tier:</span>
-            <strong className="text-slate-900 uppercase font-bold">{subscriptionStatus}</strong>
+            <strong className="text-text-primary uppercase font-bold">{subscriptionStatus}</strong>
           </span>
 
           {!isPro ? (
@@ -333,9 +333,9 @@ export default function DashboardPage() {
 
       {/* Free Tier Limitation Banner */}
       {!isPro && (
-        <div className="p-4 rounded-lg bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 flex justify-between items-center">
+        <div className="p-4 rounded-none bg-bg-raised border border-border text-xs font-mono text-text-secondary flex justify-between items-center">
           <span>Free Tier: 1 tracked account limit • 14-day history window</span>
-          <button onClick={handleUpgradeCheckout} className="text-blue-700 font-bold hover:underline">
+          <button onClick={handleUpgradeCheckout} className="text-accent font-bold hover:underline">
             Unlock Unlimited Accounts
           </button>
         </div>
@@ -343,7 +343,7 @@ export default function DashboardPage() {
 
       {/* Action Controls */}
       <div className="flex items-center justify-between">
-        <h2 className="font-display font-bold text-xl text-slate-900">
+        <h2 className="font-display font-bold text-xl text-text-primary">
           Tracked Accounts ({accounts.length})
         </h2>
         <Button variant="primary" size="sm" onClick={() => setShowAddForm(!showAddForm)}>
@@ -353,8 +353,8 @@ export default function DashboardPage() {
 
       {/* Add Account Modal Form */}
       {showAddForm && (
-        <Card className="p-6 bg-white border border-slate-300 shadow-sm space-y-4">
-          <h3 className="font-display font-bold text-base text-slate-900">Add New Tracked Account</h3>
+        <Card className="p-6 bg-bg-base border border-border space-y-4">
+          <h3 className="font-display font-bold text-base text-text-primary">Add New Tracked Account</h3>
           <form onSubmit={handleAddAccount} className="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
             <Input
               label="Account Label"
@@ -387,10 +387,10 @@ export default function DashboardPage() {
 
       {/* Tracked Accounts List */}
       {loading ? (
-        <p className="text-xs font-mono text-slate-500">Loading accounts...</p>
+        <p className="text-xs font-mono text-text-muted">Loading accounts...</p>
       ) : accountMetrics.length === 0 ? (
         <Card className="p-8 text-center space-y-3">
-          <p className="text-xs text-slate-500 font-mono">No tracked accounts configured yet.</p>
+          <p className="text-xs text-text-muted font-mono">No tracked accounts configured yet.</p>
           <Button variant="primary" size="sm" onClick={() => setShowAddForm(true)}>
             + Add First Account
           </Button>
@@ -399,30 +399,30 @@ export default function DashboardPage() {
         <div className="space-y-6">
           {accountMetrics.map(({ acc, firmData, program, floor, remainingBuffer, bufferPct, zone, daysElapsed, targetProgressPct, targetPct, consistencyStatus }) => {
             const zoneColor = {
-              safe: "bg-emerald-50 text-emerald-700 border-emerald-300 font-bold",
-              warning: "bg-amber-50 text-amber-700 border-amber-300 font-bold",
-              danger: "bg-rose-50 text-rose-700 border-rose-300 font-bold",
-              breached: "bg-rose-600 text-white font-bold",
+              safe: "bg-[#f0f5f3] text-[#2f5d50] border-[#3b7063] font-bold",
+              warning: "bg-[#fdf6e3] text-[#8b6914] border-[#8b6914] font-bold",
+              danger: "bg-[#f8f0f0] text-[#5b2c2c] border-[#7a3b3b] font-bold",
+              breached: "bg-[#5b2c2c] text-white font-bold",
             }[zone];
 
             return (
-              <Card key={acc.id} className="p-6 bg-white border border-slate-200 shadow-sm space-y-6">
+              <Card key={acc.id} className="p-6 bg-bg-base border border-border space-y-6">
                 {/* Account Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-200 pb-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-border pb-4">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="font-mono text-[10px] uppercase font-semibold text-[#1B2A4A]">
+                      <span className="font-mono text-[10px] uppercase font-semibold text-accent">
                         {firmData.name} ({program.name})
                       </span>
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-mono border uppercase ${zoneColor}`}>
+                      <span className={`px-2 py-0.5 rounded-none text-[10px] font-mono border uppercase ${zoneColor}`}>
                         {zone}
                       </span>
                     </div>
-                    <h3 className="font-display font-bold text-xl text-slate-900">{acc.label}</h3>
+                    <h3 className="font-display font-bold text-xl text-text-primary">{acc.label}</h3>
                   </div>
 
-                  <div className="flex items-center gap-3 text-xs font-mono text-slate-600">
-                    <span>Days Elapsed: <strong className="text-slate-900">{daysElapsed}d</strong></span>
+                  <div className="flex items-center gap-3 text-xs font-mono text-text-secondary">
+                    <span>Days Elapsed: <strong className="text-text-primary">{daysElapsed}d</strong></span>
                     <Button variant="secondary" size="sm" onClick={() => setSelectedAccountId(acc.id)}>
                       + Log Daily Entry
                     </Button>
@@ -431,49 +431,49 @@ export default function DashboardPage() {
 
                 {/* Account Metrics Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 font-mono text-xs">
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase block font-medium">Current Equity</span>
-                    <strong className="text-slate-900 text-base font-bold">${acc.current_balance.toLocaleString()}</strong>
+                  <div className="p-3 rounded-none bg-bg-raised border border-border">
+                    <span className="text-[10px] text-text-muted uppercase block font-medium">Current Equity</span>
+                    <strong className="text-text-primary text-base font-bold">${acc.current_balance.toLocaleString()}</strong>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase block font-medium">Peak Equity</span>
-                    <strong className="text-slate-900 text-base font-bold">${acc.peak_equity.toLocaleString()}</strong>
+                  <div className="p-3 rounded-none bg-bg-raised border border-border">
+                    <span className="text-[10px] text-text-muted uppercase block font-medium">Peak Equity</span>
+                    <strong className="text-text-primary text-base font-bold">${acc.peak_equity.toLocaleString()}</strong>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase block font-medium">Recalculated Floor ({program.maxDrawdownType})</span>
-                    <strong className="text-rose-600 text-base font-bold">${floor.toLocaleString()}</strong>
+                  <div className="p-3 rounded-none bg-bg-raised border border-border">
+                    <span className="text-[10px] text-text-muted uppercase block font-medium">Recalculated Floor ({program.maxDrawdownType})</span>
+                    <strong className="text-danger text-base font-bold">${floor.toLocaleString()}</strong>
                   </div>
 
-                  <div className="p-3 rounded-lg bg-slate-50 border border-slate-200">
-                    <span className="text-[10px] text-slate-500 uppercase block font-medium">Distance to Floor</span>
-                    <strong className="text-emerald-700 text-base font-bold">${remainingBuffer.toLocaleString()} ({bufferPct.toFixed(2)}%)</strong>
+                  <div className="p-3 rounded-none bg-bg-raised border border-border">
+                    <span className="text-[10px] text-text-muted uppercase block font-medium">Distance to Floor</span>
+                    <strong className="text-positive text-base font-bold">${remainingBuffer.toLocaleString()} ({bufferPct.toFixed(2)}%)</strong>
                   </div>
                 </div>
 
                 {/* Target Progress & Consistency Status */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
-                  <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 space-y-2">
-                    <div className="flex justify-between text-slate-600">
+                  <div className="p-3.5 rounded-none bg-bg-raised border border-border space-y-2">
+                    <div className="flex justify-between text-text-secondary">
                       <span>Target Progress ({targetPct}%):</span>
-                      <strong className="text-slate-900 font-bold">{targetProgressPct.toFixed(1)}%</strong>
+                      <strong className="text-text-primary font-bold">{targetProgressPct.toFixed(1)}%</strong>
                     </div>
-                    <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                      <div className="bg-[#1B2A4A] h-full transition-all rounded-full" style={{ width: `${targetProgressPct}%` }} />
+                    <div className="w-full bg-bg-inset h-2 rounded-none overflow-hidden">
+                      <div className="bg-accent h-full transition-all rounded-none" style={{ width: `${targetProgressPct}%` }} />
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200 flex flex-col justify-center">
-                    <span className="text-[10px] text-slate-500 uppercase block font-medium">Consistency Rule Compliance</span>
-                    <strong className="text-slate-900 text-xs font-bold">{consistencyStatus}</strong>
+                  <div className="p-3.5 rounded-none bg-bg-raised border border-border flex flex-col justify-center">
+                    <span className="text-[10px] text-text-muted uppercase block font-medium">Consistency Rule Compliance</span>
+                    <strong className="text-text-primary text-xs font-bold">{consistencyStatus}</strong>
                   </div>
                 </div>
 
                 {/* Inline Daily Entry Form */}
                 {selectedAccountId === acc.id && (
-                  <form onSubmit={handleSaveDailyEntry} className="p-5 rounded-xl bg-slate-50 border border-slate-300 space-y-4 font-mono text-xs">
-                    <h4 className="font-bold text-slate-900 text-sm">Log Daily Closing Entry</h4>
+                  <form onSubmit={handleSaveDailyEntry} className="p-5 rounded-none bg-bg-raised border border-border space-y-4 font-mono text-xs">
+                    <h4 className="font-bold text-text-primary text-sm">Log Daily Closing Entry</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                       <Input
                         label="Closing Balance ($)"

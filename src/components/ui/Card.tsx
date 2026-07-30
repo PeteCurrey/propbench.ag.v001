@@ -14,13 +14,13 @@ export function Card({
   className = "",
   children,
 }: CardProps) {
-  const bg = variant === "inset" ? "bg-slate-50/80" : "bg-white";
+  const bg = variant === "inset" ? "bg-bg-raised" : "bg-bg-base";
 
   return (
     <div
       className={[
         bg,
-        "border border-slate-200 shadow-sm rounded-lg p-5 transition-colors",
+        "border border-border rounded-none p-5 transition-colors",
         className,
       ].join(" ")}
     >
